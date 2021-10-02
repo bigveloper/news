@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
 const categories = [
     {
@@ -53,16 +53,29 @@ const Category = styled.div`
         color: #495057;
     }
 
+    ${(props) =>
+        props.active &&
+        css`
+            font-weight: 600;
+            border-botton: 2px solid #22b8cf;
+            color: #22b8cf
+            &:hover {
+                color: #3bc9db;
+            }
+        `}
+
     & + & {
         margin-left: 1rem;
     }
 `;
 
-const Categories = () => {
+const Categories = ({ onSelect, Category }) => {
     return (
         <CategoriesBlock>
             {categories.map((c) => (
-                <Category Key={c.name}>{c.text}</Category>
+                <Category Key={c.name} active={Category === c.name} onClick={() => onSelect(c.name)}>
+                    {c.text}
+                </Category>
             ))}
         </CategoriesBlock>
     );
