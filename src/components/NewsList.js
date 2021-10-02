@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import styled from 'styled-components';
-import axios from '../../node_modules/axios/index';
+import axios from 'axios';
 import NewsItem from './NewsItem';
 
 const NewsListBlock = styled.div`
@@ -16,18 +16,19 @@ const NewsListBlock = styled.div`
     }
 `;
 
-const sampleArticle = {
-    title: '제목',
-    desctiption: '내용',
-    url: 'http://google.com',
-    urlToImage: 'https://via.placeholder.com/160',
-};
+// const sampleArticle = {
+//     title: '제목',
+//     desctiption: '내용',
+//     url: 'http://google.com',
+//     urlToImage: 'https://via.placeholder.com/160',
+// };
 
 const NewsList = () => {
     const [articles, setArticles] = useState(null);
     const [loading, setLoading] = useState(false);
 
     useEffect(() => {
+        // async 를 사용하는 함수 따로 선언
         const fetchData = async () => {
             setLoading(true);
             try {
@@ -40,6 +41,7 @@ const NewsList = () => {
         };
         fetchData();
     }, []);
+    // 대기 중 일때
     if (loading) {
         return <NewsListBlock>대기중...</NewsListBlock>;
     }

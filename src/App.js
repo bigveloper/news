@@ -7,8 +7,8 @@ function App() {
     const onSelect = useCallback((category) => setCategory(category), []);
     return (
         <>
-            <Categories Category={category} onSelect={onSelect} />
-            <NewsList Category={category} />
+            <Categories category={category} onSelect={onSelect} />
+            <NewsList category={category} />
         </>
     );
 }

@@ -47,7 +47,7 @@ const Category = styled.div`
     white-space: pre;
     text-decoration: none;
     color: inherit;
-    padding-botton: 0.25rem;
+    padding-bottom: 0.25rem;
 
     &:hovor {
         color: #495057;
@@ -69,11 +69,11 @@ const Category = styled.div`
     }
 `;
 
-const Categories = ({ onSelect, Category }) => {
+const Categories = ({ onSelect, category }) => {
     return (
         <CategoriesBlock>
             {categories.map((c) => (
-                <Category Key={c.name} active={Category === c.name} onClick={() => onSelect(c.name)}>
+                <Category Key={c.name} active={category === c.name} onClick={() => onSelect(c.name)}>
                     {c.text}
                 </Category>
             ))}
