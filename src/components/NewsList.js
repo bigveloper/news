@@ -33,7 +33,7 @@ const NewsList = ({ category }) => {
             setLoading(false);
         };
         fetchData();
-    }, []);
+    }, [category]);
 
     if (loading) {
         return <NewsListBlock>대기중...</NewsListBlock>;
