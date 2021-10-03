@@ -30,3 +30,5 @@ const NewsItemBlock = styled.div`
         margin-top: 3rem;
     }
 `;
+
+export default NewsItem;
